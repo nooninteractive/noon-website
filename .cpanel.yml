@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/noonint1/public_html
+    - /bin/mkdir -p "$DEPLOYPATH"
+    - if [ "$(pwd -P)" != "$DEPLOYPATH" ]; then /bin/cp -R api development eldervale games images node pulse servers "$DEPLOYPATH/"; fi
+    - if [ "$(pwd -P)" != "$DEPLOYPATH" ]; then /bin/cp .htaccess index.html style.css script.js navigation.js community.css community.js menus.css menus.js hero-slides.css hero-slides.js eldervale.png "$DEPLOYPATH/"; fi

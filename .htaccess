@@ -12,3 +12,9 @@ RewriteRule ^ https://nooninteractive.com%{REQUEST_URI} [R=301,L,NE]
 
 RewriteCond %{HTTP_HOST} ^www\.nooninteractive\.com$ [NC]
 RewriteRule ^ https://nooninteractive.com%{REQUEST_URI} [R=301,L,NE]
+# Protect Git metadata and setup material when the checkout is also the document root.
+RewriteRule (^|/)\.git(?:/|$) - [F,L]
+RewriteRule ^deployment-support(?:/|$) - [F,L]
+<FilesMatch "^(?:README\.md|\.cpanel\.yml|\.gitignore)$">
+Require all denied
+</FilesMatch>

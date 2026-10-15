@@ -1,0 +1,7 @@
+noon-config.php
+pulse-config.php
+*.sqlite
+*.log
+.env
+.env.*
+!.env.example
